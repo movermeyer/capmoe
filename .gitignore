@@ -14,6 +14,7 @@ include/
 *.egg
 .travis.yml.*
 MANIFEST
+.python-version
 
 htmlcov/
 .DS_Store

@@ -14,6 +14,7 @@ setup(
     author_email     = 'lay.sakura@gmail.com',
     install_requires = [
         'pillow',
+        'numpy',
     ],
     tests_require    = [
         'nose',

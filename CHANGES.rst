@@ -1,7 +1,7 @@
 Changelog for CapMoe
 ====================
 
-0.0.2 (unreleased)
+0.0.2 (2014-02-11)
 ------------------
 
 - Force use of python2

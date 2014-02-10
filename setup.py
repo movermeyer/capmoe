@@ -16,7 +16,7 @@ setup(
     long_description = open('README.rst').read(),
     url              = 'https://github.com/laysakura/capmoe',
     license          = 'LICENSE.txt',
-    version          = '0.0.1',
+    version          = '0.0.2',
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,

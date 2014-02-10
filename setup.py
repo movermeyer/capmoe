@@ -15,7 +15,7 @@ setup(
     description      = 'CapMoe - Cap Beer cap image search, CLI tools and APIs',
     long_description = open('README.rst').read(),
     url              = 'https://github.com/laysakura/capmoe',
-    # license          = 'LICENSE.txt',
+    license          = 'LICENSE.txt',
     version          = '0.0.1',
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',

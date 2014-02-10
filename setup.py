@@ -12,11 +12,11 @@ tests_require = [
 
 setup(
     name             = 'capmoe',
-    description      = 'CapMoe - Cap Beer cap image search, CLI tools and APIs',
+    description      = 'CapMoe - Cap Beer cap image search, CV algorithms and their API',
     long_description = open('README.rst').read(),
     url              = 'https://github.com/laysakura/capmoe',
     license          = 'LICENSE.txt',
-    version          = '0.0.2',
+    version='0.0.3.dev0',
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,
@@ -37,7 +37,6 @@ setup(
         'capmoe.cv',
     ],
     scripts = [
-        'bin/capmoe-capdetector.py',
     ],
     classifiers = '''
 Programming Language :: Python

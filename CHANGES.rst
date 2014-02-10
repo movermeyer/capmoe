@@ -1,6 +1,12 @@
 Changelog for CapMoe
 ====================
 
+0.0.3 (unreleased)
+------------------
+
+- Stop CLI tools, only python library
+
+
 0.0.2 (2014-02-11)
 ------------------
 

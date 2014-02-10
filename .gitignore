@@ -3,7 +3,6 @@
 *.pyc
 core
 
-bin/
 build/
 dist/
 lib/

@@ -17,7 +17,7 @@ from nose_parameterized import parameterized
 import cv2
 
 # original modules
-import capmoe.api as api
+from capmoe.cv.capdetector import capdetector
 
 
 # constants
@@ -69,5 +69,5 @@ def test_capdetector(img_name, cap_circle):
     im       = cv2.imread(img_path)
     img_size = im.shape[0:2]
 
-    cap_candidates = api.capdetectior(img_path, max_candidates=5)
+    cap_candidates = capdetector(img_path, max_candidates=5)
     assert(has_circle_nearly_eq(cap_circle, cap_candidates, img_size))

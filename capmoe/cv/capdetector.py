@@ -20,7 +20,7 @@ import cv2
 # original modules
 
 
-def capdetector(imgpath, max_caididates):
+def capdetector(imgpath, max_candidates):
     """Try to detect a beer cap circle from an image
     """
     im = cv2.imread(imgpath, cv2.IMREAD_GRAYSCALE)
@@ -47,7 +47,7 @@ def capdetector(imgpath, max_caididates):
             continue
 
         caps.append({'x': int(x), 'y': int(y), 'r': int(r)})
-        if len(caps) >= max_caididates:
+        if len(caps) >= max_candidates:
             break
 
     return caps

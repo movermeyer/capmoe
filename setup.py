@@ -12,7 +12,7 @@ tests_require = [
 
 setup(
     name             = 'capmoe',
-    description      = 'CapMoe - Cap Beer cap image search, CLI tools',
+    description      = 'CapMoe - Cap Beer cap image search, CLI tools and APIs',
     long_description = open('README.rst').read(),
     url              = 'https://github.com/laysakura/capmoe',
     # license          = 'LICENSE.txt',
@@ -20,10 +20,12 @@ setup(
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,
+    # Packages required to invoke `capmoe.api` functions.
+    # Do not list cv libraries here.
+    # They must be installed by hands.
+    # This is because other packages who incokes `capmoe.api`
+    # does not want to install cv libraries.
     install_requires = [
-        'pillow',
-        'scipy',
-        'numpy',
         'simplejson',
     ],
     extras_require = {
@@ -39,7 +41,7 @@ setup(
     ],
     classifiers = '''
 Programming Language :: Python
-Development Status :: 1 - Planning
+Development Status :: 4 - Beta
 Programming Language :: Python :: 2.7
 Operating System :: POSIX :: Linux
 '''.strip().splitlines()

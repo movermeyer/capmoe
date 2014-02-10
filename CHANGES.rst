@@ -4,4 +4,4 @@ Changelog for CapMoe
 0.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- CapDetector is available

@@ -16,6 +16,7 @@ include/
 .travis.yml.*
 MANIFEST
 .python-version
+.coverage
 
 htmlcov/
 .DS_Store

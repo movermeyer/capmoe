@@ -38,6 +38,6 @@ Output from stderr:
     return json.loads(p.stdout.read())
 
 
-def capdetectior(imgpath, max_candidates):
+def capdetector(imgpath, max_candidates):
     cmd = 'capmoe-capdetector.py "%s" %d' % (imgpath, max_candidates)
     return _command_exec(cmd)

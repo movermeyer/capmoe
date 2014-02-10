@@ -1,19 +1,15 @@
 language: python
 python:
-  - "3.2"
-  - "3.3"
-
-# command to install dependencies
-install:
-  - "pip install ."
-  - "python setup.py test"  # for installing `tests_require`
-  - "pip install nose-cov"  # why `nose-cov` isn't correctlly installed by `setup.py test` ?
-
-# command to run tests
-script:
-  - "python setup.py nosetests"
+  - "2.7"
 
 branches:
   only:
     - master
     - dev
+
+install:
+  - "pip install ."
+  - "pip install -e .[testing]"  # for installing `tests_require`
+
+script:
+  - "python setup.py nosetests"

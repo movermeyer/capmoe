@@ -1,4 +1,5 @@
 [run]
+omit = test/*
 branch = True
 parallel-mode = True
 

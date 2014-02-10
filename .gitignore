@@ -4,6 +4,7 @@
 core
 
 bin/
+build/
 dist/
 lib/
 man/

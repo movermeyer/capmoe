@@ -8,6 +8,7 @@ tests_require = [
     'coverage',
     'nose-cov',
     'nose-parameterized',
+    'rainbow_logging_handler',
 ],
 
 setup(
@@ -16,7 +17,7 @@ setup(
     long_description = open('README.rst').read(),
     url              = 'https://github.com/laysakura/capmoe',
     license          = 'LICENSE.txt',
-    version='0.0.3',
+    version          = '0.0.3',
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,

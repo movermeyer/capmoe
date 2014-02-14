@@ -14,6 +14,7 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 
 # standard modules
 import time
+from os.path import basename
 
 # 3rd party modules
 import cv2
@@ -33,6 +34,7 @@ def capdetector(imgpath, max_candidates, loglevel='WARNING'):
 
     im = cv2.imread(imgpath, cv2.IMREAD_GRAYSCALE)
     im_height, im_width = im.shape[0:2]
+    logger.debug('%s: size=(%d,%d)' % (basename(imgpath), im_width, im_height))
 
     im = cv2.GaussianBlur(im, ksize=(5, 5), sigmaX=0)
 
@@ -46,7 +48,8 @@ def capdetector(imgpath, max_candidates, loglevel='WARNING'):
         minRadius=int(min(im_width, im_height) * 0.2),
         maxRadius=int(min(im_width, im_height) * 0.6))
     t1 = time.time()
-    logger.debug('cv2.HoughCircles(): %f sec' % (t1 - t0))
+    logger.debug('cv2.HoughCircles(): %d circles detected in %f sec' %
+                 (circles.size, t1 - t0))
 
     # filter beer cap candidates from circles (at most `max_caididates`)
     center_x, center_y = (im_width / 2, im_height / 2)

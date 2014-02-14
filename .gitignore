@@ -1,8 +1,9 @@
 *~
+\#*\#
 *.pyc
 core
 
-bin/
+build/
 dist/
 lib/
 man/
@@ -15,6 +16,7 @@ include/
 .travis.yml.*
 MANIFEST
 .python-version
+.coverage
 
 htmlcov/
 .DS_Store

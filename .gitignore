@@ -20,3 +20,5 @@ MANIFEST
 
 htmlcov/
 .DS_Store
+
+*.npy

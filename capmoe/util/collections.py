@@ -64,14 +64,14 @@ class fixedlen_ordered_list(list):
         if len(self) > self._maxlen:
             del self[self._maxlen]
 
-    def __add__(self):
+    def __add__(self):  # pragma: no cover
         raise NotImplementedError('Use `append()`')
 
-    def extend(self):
+    def extend(self):  # pragma: no cover
         raise NotImplementedError('Use `append()`')
 
-    def insert(self):
+    def insert(self):  # pragma: no cover
         raise NotImplementedError('Use `append()`')
 
-    def reverse(self):
+    def reverse(self):  # pragma: no cover
         raise NotImplementedError('method not supported')

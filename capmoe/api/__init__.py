@@ -18,3 +18,4 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 
 # original modules
 from capmoe.cv.capdetector import capdetector
+from capmoe.cv.searchsimilars import searchsimilars

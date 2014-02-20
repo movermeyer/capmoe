@@ -36,6 +36,7 @@ setup(
         'capmoe',
         'capmoe.api',
         'capmoe.cv',
+        'capmoe.util',
     ],
     scripts = [
     ],

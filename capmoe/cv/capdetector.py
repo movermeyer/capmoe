@@ -29,6 +29,8 @@ logger = capmoe.util.logger.factory(__file__)
 
 def capdetector(imgpath, max_candidates, loglevel='WARNING'):
     """Detect circles from an image
+
+    :rtype: [{'x': <cap circle center x>, 'y': <cap circle center y>, 'r': <cap circle radius>}, ...]
     """
     logger.setLevel(loglevel)
 

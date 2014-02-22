@@ -12,7 +12,9 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 # standard modules
 
 # 3rd party modules
+from nose_parameterized import parameterized
 import numpy as np
+import pyflann
 
 # original modules
 from capmoe.cv.bof import bof
@@ -35,23 +37,18 @@ FEATURES = np.array([
 ])
 
 
-def test_bof():
+@parameterized([
+    (None, [3    , 1    , 2    ]),  # v1:3, v2:1, v3:2
+    (1   , [0.500, 0.166, 0.333]),  # L1-norm
+    (2   , [0.801, 0.267, 0.534]),  # L2-norm
+])
+def test_bof(norm_order, answer_bof):
     """Test if BoF is created correctly"""
-    bof_ = bof(FEATURES, VISUALWORDS, loglevel='DEBUG')
-    np.testing.assert_array_equal(
-        bof_, np.array([3, 1, 2]))  # v1:3, v2:1, v3:2
+    flann = pyflann.FLANN()
+    param = flann.build_index(VISUALWORDS, algorithm='kdtree')
 
-
-def test_bof_normalized():
-    """Test if BoF is correctly normalized"""
-    # L1-norm
-    bof_ = bof(FEATURES, VISUALWORDS, norm_order=1, loglevel='DEBUG')
+    bof_ = bof(FEATURES, VISUALWORDS.shape[0], flann, param,
+               norm_order=norm_order, loglevel='DEBUG')
     np.testing.assert_array_almost_equal(
-        bof_, np.array([0.500, 0.166, 0.333]),
-        decimal=3)
-
-    # L2-norm
-    bof_ = bof(FEATURES, VISUALWORDS, norm_order=2, loglevel='DEBUG')
-    np.testing.assert_array_almost_equal(
-        bof_, np.array([0.801, 0.267, 0.534]),
+        bof_, np.array(answer_bof),
         decimal=3)

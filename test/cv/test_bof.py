@@ -14,10 +14,9 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 # 3rd party modules
 from nose_parameterized import parameterized
 import numpy as np
-import pyflann
 
 # original modules
-from capmoe.cv.bof import bof
+from capmoe.cv.bof import BoF
 
 
 # constants
@@ -36,6 +35,10 @@ FEATURES = np.array([
     [0.2, 0.1, 1.5],  # v3
 ])
 
+# global variables
+## BoF should be created only once
+bof = BoF(VISUALWORDS, algorithm='kdtree', loglevel='DEBUG')
+
 
 @parameterized([
     (None, [3    , 1    , 2    ]),  # v1:3, v2:1, v3:2
@@ -44,11 +47,7 @@ FEATURES = np.array([
 ])
 def test_bof(norm_order, answer_bof):
     """Test if BoF is created correctly"""
-    flann = pyflann.FLANN()
-    param = flann.build_index(VISUALWORDS, algorithm='kdtree')
-
-    bof_ = bof(FEATURES, VISUALWORDS.shape[0], flann, param,
-               norm_order=norm_order, loglevel='DEBUG')
+    bof_hist = bof.mk_hist(FEATURES, norm_order=norm_order)
     np.testing.assert_array_almost_equal(
-        bof_, np.array(answer_bof),
+        bof_hist, np.array(answer_bof),
         decimal=3)

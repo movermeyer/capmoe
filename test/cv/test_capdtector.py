@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-     :synopsis: Test CapMoe's API libraries
+     :synopsis: Test cap detection
 
      Description.
  """

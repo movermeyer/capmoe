@@ -28,6 +28,7 @@ setup(
     # does not want to install cv libraries.
     install_requires = [
         'simplejson',
+        'enum34',
     ],
     extras_require = {
         'testing': tests_require,

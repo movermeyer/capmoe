@@ -18,6 +18,7 @@ import time
 # 3rd party modules
 import numpy as np
 import pyflann
+import simplejson as json
 
 # original modules
 import capmoe.util.logger
@@ -36,23 +37,45 @@ class BoFMaker(object):
     Index creation is wrapped by this class.
     """
 
-    def __init__(self, visualwords, algorithm='kdtree', loglevel='WARNING'):
-        """Create index of visual words.
+    def __init__(self, visualwords,
+                 index_filepath=None,
+                 algorithm='kdtree',
+                 loglevel='WARNING'):
+        """Create or load index of visual words.
 
         :param visualwords: 2D array of base vectors
         :type visualwords: M x len(feature) `numpy.ndarray`,
             where each element is `numpy.float32`
+        :param index_filepath: If not `None`, index is not created
+           but load from specified file.
+           The file must be created by :func:`BoFMaker.save`
         :param algorithm: passed to `pyflann.FLANN().build_index`
         """
         self._n_visualwords = visualwords.shape[0]
+        self._flann         = pyflann.FLANN()
 
-        # create index
-        self._flann = pyflann.FLANN()
-        logger.debug('Creating index of visual words...')
-        t0 = time.time()
-        self._index_param = self._flann.build_index(
-            visualwords, algorithm=algorithm)
-        logger.debug('%f sec to create index' % (time.time() - t0))
+        if index_filepath is not None:
+            # load index
+            logger.debug('Loading visual words index from %s ...' %
+                         (index_filepath))
+            t0 = time.time()
+            with open(BoFMaker.meta_filepath(index_filepath)) as f:
+                self._index_param = json.load(f)
+            self._flann.load_index(index_filepath, visualwords)
+            logger.debug('%f sec to load index' % (time.time() - t0))
+        else:
+            # create index
+            logger.debug('Creating index of visual words...')
+            t0 = time.time()
+            self._index_param = self._flann.build_index(
+                visualwords, algorithm=algorithm)
+            logger.debug('%f sec to create index' % (time.time() - t0))
+
+    def save(self, filepath):
+        """Save index of visual words to :param:`filepath`"""
+        with open(BoFMaker.meta_filepath(filepath), 'w') as f:
+            json.dump(self._index_param, f)
+        self._flann.save_index(filepath)
 
     def make(self, features, norm_order=None):
         """Create BoF representation of features.
@@ -75,3 +98,8 @@ class BoFMaker(object):
         if norm_order is None:
             return bof_hist
         return bof_hist / np.linalg.norm(bof_hist, ord=norm_order)
+
+    @staticmethod
+    def meta_filepath(index_filepath):
+        """Generate path to meta data file"""
+        return '%s-meta.json' % (index_filepath)

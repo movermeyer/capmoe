@@ -18,5 +18,5 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 
 # original modules
 from capmoe.cv.capdetector import capdetector
-from capmoe.cv.bof import BoF
+from capmoe.cv.bof import BoFMaker
 from capmoe.cv.searchsimilars import searchsimilars

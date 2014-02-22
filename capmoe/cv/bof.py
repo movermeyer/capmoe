@@ -27,7 +27,7 @@ import capmoe.util.logger
 logger = capmoe.util.logger.factory(__file__)
 
 
-class BoF(object):
+class BoFMaker(object):
     """Create BoF representation from features & visual words.
 
     Since ANN algorithm is used internally,
@@ -54,7 +54,7 @@ class BoF(object):
             visualwords, algorithm=algorithm)
         logger.debug('%f sec to create index' % (time.time() - t0))
 
-    def mk_hist(self, features, norm_order=None):
+    def make(self, features, norm_order=None):
         """Create BoF representation of features.
 
         :param features: 2D array of feature vectors

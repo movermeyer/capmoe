@@ -16,7 +16,7 @@ from nose_parameterized import parameterized
 import numpy as np
 
 # original modules
-from capmoe.cv.bof import BoF
+from capmoe.cv.bof import BoFMaker
 
 
 # constants
@@ -37,7 +37,7 @@ FEATURES = np.array([
 
 # global variables
 ## BoF should be created only once
-bof = BoF(VISUALWORDS, algorithm='kdtree', loglevel='DEBUG')
+bof = BoFMaker(VISUALWORDS, algorithm='kdtree', loglevel='DEBUG')
 
 
 @parameterized([
@@ -47,7 +47,7 @@ bof = BoF(VISUALWORDS, algorithm='kdtree', loglevel='DEBUG')
 ])
 def test_bof(norm_order, answer_bof):
     """Test if BoF is created correctly"""
-    bof_hist = bof.mk_hist(FEATURES, norm_order=norm_order)
+    bof_hist = bof.make(FEATURES, norm_order=norm_order)
     np.testing.assert_array_almost_equal(
         bof_hist, np.array(answer_bof),
         decimal=3)

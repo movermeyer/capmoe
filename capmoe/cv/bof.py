@@ -4,8 +4,6 @@
     ~~~~~~~~~~~~~
 
     :synopsis: Create BoF representation from features & visual words
-
-    Description.
 """
 
 
@@ -72,7 +70,7 @@ class BoFMaker(object):
             logger.debug('%f sec to create index' % (time.time() - t0))
 
     def save(self, filepath):
-        """Save index of visual words to :param:`filepath`"""
+        """Save index of visual words to ``filepath``"""
         with open(BoFMaker.meta_filepath(filepath), 'w') as f:
             json.dump(self._index_param, f)
         self._flann.save_index(filepath)

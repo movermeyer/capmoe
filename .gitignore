@@ -20,5 +20,8 @@ MANIFEST
 
 htmlcov/
 .DS_Store
+.watsonrc
+doc/doctrees/
+doc/html/
 
 *.npy

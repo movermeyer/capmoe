@@ -22,11 +22,11 @@ setup(
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,
     install_requires = [
-        'simplejson',
+        'numpy',
         'redis',
+        'simplejson',
         # following packages are necessary but not installed from PyPI
         # 'cv2',
-        # 'numpy',
         # 'pyflann',
     ],
     extras_require = {

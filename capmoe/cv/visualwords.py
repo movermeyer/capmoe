@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    package.module
-    ~~~~~~~~~~~~~~
+    capmoe.cv.visualwords
+    ~~~~~~~~~~~~~~~~~~~~~
 
-    :synopsis: What is this module for?
-
-    Description.
+    :synopsis: Creates visual words (codebook) from features of images
 """
 
 

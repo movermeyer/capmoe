@@ -4,8 +4,6 @@
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     :synopsis: Provides implementations of inverted index.
-
-    Description.
 """
 
 
@@ -23,7 +21,7 @@ import redis
 class InvertedIndexRedis(object):
     """Inverted index whose backend is Redis.
 
-    `redis` module is used as backend.
+    ``redis`` module is used as backend.
 
     Very specific class:
     Only methods necesarry for BoF inverted index are provided.
@@ -32,15 +30,15 @@ class InvertedIndexRedis(object):
     def __init__(self, **kw):
         """Connect to Redis server.
 
-        :param **kw: passed to `redis.StrictRedis`
+        :param kw: passed to `redis.StrictRedis`
         """
         self._redis = redis.StrictRedis(**kw)
 
     def addhash(self, name, key, value):
-        """Adds :param:`key` & :param:`value` pair into :param:`name` record"""
+        """Adds ``key`` & ``value`` pair into ``name`` record"""
         self._redis.hset(name, key, value)
 
     def getdict(self, name):
-        """Get value of :param:`name` record"""
+        """Get value of ``name`` record"""
         record = self._redis.hgetall(name)
         return {k: float(v) for k, v in record.items()}

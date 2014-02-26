@@ -4,8 +4,6 @@
     ~~~~~~~~~~~~~~~~~~~~~~~~
 
     :synopsis: Searches images similar to query from database.
-
-    Description.
 """
 
 
@@ -38,7 +36,7 @@ def searchsimilars(query_img, db_imgs,
     :type query_img: {'path': '/path/to/img', 'fearture': `narray` feature vector}
     :type db_imgs: iterable of {'path': '/path/to/img', 'fearture': `narray` feature vector}
     :rtype: (<similar image path>, ...) w/
-        length less than :param:`max_candidates`.
+        length less than ``max_candidates``.
         Left element has higher similarity.
     """
     similars = fixedlen_ordered_list(

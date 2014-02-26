@@ -4,8 +4,6 @@
     ~~~~~~~~~~~~~~~~~~~~~
 
     :synopsis: Provides function to detect a beer cap from an image
-
-    Description.
 """
 
 

@@ -13,15 +13,21 @@
 from __future__ import division, print_function, absolute_import, unicode_literals
 
 # standard modules
+import time
 import itertools
 
 # 3rd party modules
 import numpy as np
 
 # original modules
+import capmoe.util.logger
 
 
-def visualwords_union(features):
+# global variables
+logger = capmoe.util.logger.factory(__file__)
+
+
+def visualwords_union(features, loglevel='WARNING'):
     """Create simple visual words just by making union of feature vectors
 
     Not suitable for large number of features.
@@ -37,4 +43,7 @@ def visualwords_union(features):
             )
     :rtype: 2-D `numpy.ndarray`
     """
-    return np.array(list(itertools.chain.from_iterable(features)))
+    t0 = time.time()
+    visualwords = np.array(list(itertools.chain.from_iterable(features)))
+    logger.debug('%f sec to union feature vectors' % (time.time() - t0))
+    return visualwords

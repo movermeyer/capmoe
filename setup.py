@@ -21,13 +21,13 @@ setup(
     author           = 'Sho Nakatani',
     author_email     = 'lay.sakura@gmail.com',
     tests_require    = tests_require,
-    # Packages required to invoke `capmoe.api` functions.
-    # Do not list cv libraries here.
-    # They must be installed by hands.
-    # This is because other packages who incokes `capmoe.api`
-    # does not want to install cv libraries.
     install_requires = [
         'simplejson',
+        'redis',
+        # following packages are necessary but not installed from PyPI
+        # 'cv2',
+        # 'numpy',
+        # 'pyflann',
     ],
     extras_require = {
         'testing': tests_require,

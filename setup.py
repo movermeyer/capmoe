@@ -23,7 +23,7 @@ setup(
     tests_require    = tests_require,
     install_requires = [
         'simplejson',
-        'enum34',
+        'redis',
         # following packages are necessary but not installed from PyPI
         # 'cv2',
         # 'numpy',

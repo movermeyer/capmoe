@@ -28,6 +28,13 @@ which is because they are not PyPI packages.
 See ``install_requires`` in ``setup.py`` for required packages.
 
 
+Developers' guide
+-----------------
+
+Sphinx-powered developers' guide is available.
+http://packages.python.org/capmoe
+
+
 Author
 ------
 Sho Nakatani <lay.sakura@gmail.com>

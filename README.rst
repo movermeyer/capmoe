@@ -1,16 +1,19 @@
 CapMoe
 ======
+
 .. image:: https://pypip.in/v/capmoe/badge.png
     :target: https://pypi.python.org/pypi/capmoe
     :alt: Latest PyPI version
 
-CapMoe - Cap Beer cap image search, CLI tools and APIs
+CapMoe - Cap Beer cap image search
 
 .. contents:: :local:
 
 
 Installation
 ------------
+
+Hit the following command after satisfying requirements.
 
 .. code-block:: bash
     $ pip install capmoe
@@ -19,16 +22,17 @@ Installation
 Requirements
 ############
 
-Packages required to invoke `capmoe.api` functions are
-automatically installed via `pip`.
+Some packages are not installed automatically via PyPI,
+which is because they are not PyPI packages.
 
-Following packages are required run CLI tools.
+See ``install_requires`` in ``setup.py`` for required packages.
 
-- scipy
 
-- numpy
+Developers' guide
+-----------------
 
-- cv2
+Sphinx-powered developers' guide is available.
+http://packages.python.org/capmoe
 
 
 Author

@@ -3,9 +3,10 @@
     capmoe.api
     ~~~~~~~~~~
 
-    :synopsis: API to :package:`capmoe.cv`
+    :synopsis: APIs used mainly by `CapMoe web service <https://github.com/laysakura/capmoe_web>`_
 
-    Description.
+    This module provides algorithms to search similar beer caps from image files.
+    CV algorithms and data structures are (hopefully) highly abstracted.
 """
 
 
@@ -18,5 +19,4 @@ from __future__ import division, print_function, absolute_import, unicode_litera
 
 # original modules
 from capmoe.cv.capdetector import capdetector
-from capmoe.cv.bof import BoFMaker
 from capmoe.cv.searchsimilars import searchsimilars

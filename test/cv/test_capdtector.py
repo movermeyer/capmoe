@@ -25,7 +25,7 @@ IMG_DIR = join(dirname(__file__), '..', 'images')
 
 
 def has_circle_nearly_eq(query_circle, target_circles, img_size):
-    """Check if :param:`query_circle` is in :param:`target_circles`
+    """Check if ``query_circle`` is in ``target_circles``
 
     Minor error on center point and radius are allowed
 

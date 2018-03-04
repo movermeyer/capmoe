@@ -1,7 +1,7 @@
 CapMoe
 ======
 
-.. image:: https://pypip.in/v/capmoe/badge.png
+.. image:: https://img.shields.io/pypi/v/capmoe.svg
     :target: https://pypi.python.org/pypi/capmoe
     :alt: Latest PyPI version
 
